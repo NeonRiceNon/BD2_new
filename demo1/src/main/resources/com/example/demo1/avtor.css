@@ -1,0 +1,59 @@
+.fon{
+    -fx-background-image: url(fon_avtoriz.png);
+    -fx-background-position: center center;
+}
+.fild{
+    -fx-background-color: d9d9d9;
+    -fx-background-radius:50;
+    -fx-font-color: bbbbbb;
+}
+.button{
+    -fx-background-color: d9d9d9;
+    -fx-background-radius:50;
+}
+
+.fonOb{
+    -fx-background-image: url(fonn.PNG);
+    -fx-background-position: center center;
+    -fx-background-size: 1200 800;
+}
+.button_razdel{
+    -fx-background-color: d9d9d9;
+    -fx-background-radius: 35 35 0 0;
+}
+.poisk_razdel{
+    -fx-background-color: e9e5d9;
+    -fx-background-radius: 35 0 0 0;
+}
+.table{
+    -fx-background-color: d9d9d9;
+    -fx-background-radius:10 10 10 10 ;
+}
+.izmenen{
+    -fx-background-image: url(izmen.png);
+    -fx-background-position: center center;
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat ;
+    -fx-background-radius:10 10 10 10 ;
+}
+.dobavl{
+    -fx-background-image: url(dob.png);
+    -fx-background-position: center center;
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat ;
+    -fx-background-radius:10 10 10 10 ;
+}
+.obn{
+    -fx-background-image: url(obn.png);
+    -fx-background-position: center center;
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat ;
+    -fx-background-radius:10 10 10 10 ;
+}
+.ydol{
+    -fx-background-image: url(close-icon.jpg);
+    -fx-background-position: center center;
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat ;
+    -fx-background-radius:10 10 10 10 ;
+}

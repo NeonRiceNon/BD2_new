@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.demo1.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="1257.0" styleClass="fon" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="682.0" layoutY="308.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
+         <font>
+            <Font name="Microsoft PhagsPa" size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="682.0" layoutY="457.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
+         <font>
+            <Font name="Microsoft PhagsPa" size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="749.0" layoutY="618.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="277.0" stylesheets="@avtor.css" text="ВОЙТИ">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6666666865348816" green="0.43921568989753723" blue="0.43921568989753723" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.1599999964237213" green="0.07519999891519547" blue="0.07519999891519547" opacity="0.5916030406951904" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
+   </children>
+</AnchorPane>
