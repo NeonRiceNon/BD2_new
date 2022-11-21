@@ -7,11 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-radius: 30;" styleClass="fonOb" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.TablBook">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-radius: 30;" styleClass="fonOb" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
       <Button layoutX="450.0" layoutY="71.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="123.0" styleClass="button_razdel" text="Заказы" textFill="#615050">
          <font>
@@ -39,15 +41,15 @@
          </font>
       </Button>
       <Line endX="530.0" layoutX="163.0" layoutY="114.0" startX="-81.0" stroke="#eeefbb" strokeWidth="7.0" />
-      <TextField layoutX="900.0" layoutY="74.0" prefHeight="36.0" prefWidth="286.0" promptText="    Поиск . . ." styleClass="poisk_razdel">
+      <TextField layoutX="900.0" layoutY="69.0" prefHeight="45.0" prefWidth="286.0" promptText="    Поиск . . ." styleClass="poisk_razdel">
          <font>
-            <Font size="19.0" />
+            <Font name="Georgia" size="19.0" />
          </font>
       </TextField>
       <AnchorPane layoutX="79.0" layoutY="159.0" opacity="0.85" prefHeight="550.0" prefWidth="618.0" styleClass="table">
          <children>
-            <ScrollBar layoutX="597.0" orientation="VERTICAL" prefHeight="550.0" prefWidth="21.0" />
-            <TableView layoutY="-22.0" prefHeight="572.0" prefWidth="599.0" styleClass="table">
+            <ScrollBar layoutX="597.0" layoutY="1.0" orientation="VERTICAL" prefHeight="568.0" prefWidth="21.0" />
+            <TableView layoutY="-22.0" prefHeight="592.0" prefWidth="599.0" styleClass="table">
               <columns>
                 <TableColumn prefWidth="72.0" text="Арт" />
                 <TableColumn prefWidth="190.0" text="Название" />
@@ -62,5 +64,26 @@
       <Button layoutX="900.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="39.0" styleClass="ydol" />
       <Button layoutX="900.0" layoutY="223.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="39.0" styleClass="obn" />
       <PieChart layoutX="819.0" layoutY="403.0" prefHeight="315.0" prefWidth="327.0" title="Соотношение книг по автору" />
+      <Button fx:id="CreatAkk" layoutX="869.0" layoutY="355.0" mnemonicParsing="false" onAction="#Butt_CreatAkk" prefHeight="28.0" prefWidth="277.0" styleClass="opacity" stylesheets="@avtor.css" text="Создать аккаунт . . .">
+         <font>
+            <Font name="Candara Bold" size="15.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6666666865348816" green="0.43921568989753723" blue="0.43921568989753723" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.1599999964237213" green="0.07519999891519547" blue="0.07519999891519547" opacity="0.5916030406951904" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
    </children>
 </AnchorPane>

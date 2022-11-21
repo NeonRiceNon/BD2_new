@@ -8,12 +8,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="1257.0" styleClass="fon" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="1257.0" styleClass="fon" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
       <TextField layoutX="682.0" layoutY="308.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
          <font>
-            <Font name="Microsoft PhagsPa" size="18.0" />
+            <Font name="Gadugi" size="18.0" />
          </font>
       </TextField>
       <TextField layoutX="682.0" layoutY="457.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
@@ -21,7 +20,7 @@
             <Font name="Microsoft PhagsPa" size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="749.0" layoutY="618.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="277.0" stylesheets="@avtor.css" text="ВОЙТИ">
+      <Button fx:id="vxod" layoutX="749.0" layoutY="618.0" mnemonicParsing="false" onAction="#RegClick" prefHeight="54.0" prefWidth="277.0" stylesheets="@avtor.css" text="ВОЙТИ">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
