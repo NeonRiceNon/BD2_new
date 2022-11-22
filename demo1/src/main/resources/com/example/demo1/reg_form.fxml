@@ -57,5 +57,26 @@
             </LinearGradient>
          </textFill>
       </Button>
+      <Button fx:id="naz" layoutX="59.0" layoutY="710.0" mnemonicParsing="false" onAction="#Butt_Naz" prefHeight="36.0" prefWidth="130.0" style="-fx-opacity: 80%;" text="Назад">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.5971563981042654">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7300000190734863" green="0.5401999950408936" blue="0.5401999950408936" opacity="0.5877862572669983" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.38999998569488525" green="0.33149999380111694" blue="0.33149999380111694" opacity="0.5496183037757874" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
    </children>
 </AnchorPane>
