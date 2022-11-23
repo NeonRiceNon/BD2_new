@@ -15,21 +15,21 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
-    public void showDialog(ActionEvent actionEvent, Stage stage){
+    Stage mainwindow;
+    @FXML
+    public void showDialog(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("win_dob.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 450, 250);
-            //stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
-            stage.show();
+            Stage dialog = new Stage();
+            dialog.initOwner(mainwindow);
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            Parent root = FXMLLoader.load(getClass().getResource("win_dob.fxml"));
+            dialog.setScene(new Scene(root));
+            dialog.showAndWait();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-    }
+        catch (Exception e){
+            System.out.println(e);
+        }}
 
     @FXML
     private ResourceBundle resources;
@@ -51,8 +51,8 @@ public class MainController {
     @FXML
     protected void RegClick() throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
-        Stage wind = (Stage) vxod.getScene().getWindow();
-        wind.setScene(new Scene(root));
+        mainwindow = (Stage) vxod.getScene().getWindow();
+        mainwindow.setScene(new Scene(root));
     }
 
     @FXML
@@ -79,8 +79,8 @@ public class MainController {
     @FXML
     protected void Clik_Avtor() throws IOException{
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_av.fxml"));
-        Stage wind1 = (Stage) Avtor.getScene().getWindow();
-        wind1.setScene(new Scene(root1));}
+        mainwindow = (Stage) Avtor.getScene().getWindow();
+        mainwindow.setScene(new Scene(root1));}
 
     @FXML
     private Button Book;
@@ -139,4 +139,7 @@ public class MainController {
     public void setNaz(Button naz) {
         this.naz = naz;
     }
-}
+
+
+    }
+
