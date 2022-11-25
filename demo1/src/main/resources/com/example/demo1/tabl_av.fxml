@@ -56,9 +56,9 @@
             </TableView>
          </children>
       </AnchorPane>
-      <Button fx:id="dobavit" layoutX="900.0" layoutY="129.0" mnemonicParsing="false" onAction="#showDialog" prefHeight="40.0" prefWidth="39.0" styleClass="dobavl" />
-      <Button layoutX="900.0" layoutY="176.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="39.0" styleClass="izmenen" />
-      <Button layoutX="900.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="39.0" styleClass="ydol" />
+      <Button fx:id="dobavit" layoutX="900.0" layoutY="129.0" mnemonicParsing="false" onAction="#showDialogAvtor" prefHeight="40.0" prefWidth="39.0" styleClass="dobavl" />
+      <Button layoutX="900.0" layoutY="176.0" mnemonicParsing="false" onAction="#IzmenDialogAv" prefHeight="40.0" prefWidth="39.0" styleClass="izmenen" />
+      <Button layoutX="900.0" layoutY="270.0" mnemonicParsing="false" onAction="#DeleteDialog" prefHeight="40.0" prefWidth="39.0" styleClass="ydol" />
       <Button layoutX="900.0" layoutY="223.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="39.0" styleClass="obn" />
       <Button fx:id="CreatAkk" layoutX="869.0" layoutY="355.0" mnemonicParsing="false" onAction="#Butt_CreatAkk" prefHeight="28.0" prefWidth="277.0" styleClass="opacity" stylesheets="@avtor.css" text="Создать аккаунт . . .">
          <font>

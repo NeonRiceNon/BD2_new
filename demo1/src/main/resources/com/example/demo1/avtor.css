@@ -90,7 +90,7 @@
 }
 
 .modal_dob_fon{
-    -fx-background-radius:50 ;
+    /*-fx-background-radius:50 ;*/
     -fx-background-color: d0bc9f;
     /*-fx-background-image: url(../pic/modal_dobav.png);
     -fx-background-position: center center;
@@ -98,7 +98,7 @@
     -fx-background-size: 450 250;
 }
 .modal_dob_fon2{
-    -fx-background-radius:50 ;
+    -fx-background-radius:10 ;
     -fx-background-color: e9e5d9;
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat ;
@@ -106,5 +106,5 @@
 }
 .button_modal_v{
     -fx-background-color: d0bc9f;
-    -fx-background-radius: 0 0 35 35;
+    -fx-background-radius: 0 0 10 10;
 }
