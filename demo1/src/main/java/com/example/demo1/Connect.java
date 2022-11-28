@@ -1,15 +1,15 @@
 package com.example.demo1;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Connect {
-    public static Connection Connect(String username, String pass, String jdbcURL) {
+    String username;
+    String pass;
+    String jdbcURL;
+    public static Connection Connect() { //String username, String pass, String jdbcURL
 
         try {
-            Connection connection = DriverManager.getConnection(jdbcURL, pass, username);
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS");
             System.out.println(" kkkk postgresql ");
             return connection;
         } catch (SQLException e) {
@@ -17,7 +17,21 @@ public class Connect {
             e.printStackTrace();
             return null;
         }
+
+
     }
+//ЧТО-ТО ОТ ДОБАВЛЕНИЯ ТАБЛИЦ
+    /*public ResultSet gettable(String sql){
+        try{
+            //sql = "Select * from izmerenie";
+            ResultSet rs = connection.createStatement().executeQuery(sql);
+            return rs;
+        }
+        catch (Exception e){
+            return null;
+        }
+
+    }*/
 
     //ДОБАВЛЕНИЕ
     public static void INSERT() {
