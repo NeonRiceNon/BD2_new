@@ -25,8 +25,8 @@ import javafx.util.Callback;
 
 public class MainController {
     Stage mainwindow;
-    private ObservableList<Object> data;
-
+    static private ObservableList<Object> data;
+    static private String name;
     //ДОБАВЛЕНИЕ
     @FXML
     public void showDialogAvtor(ActionEvent actionEvent) {
@@ -236,11 +236,13 @@ public class MainController {
     private Button Avtor;
     @FXML
     protected void Clik_Avtor() throws IOException{
+        MainController.name = "Авторы";
+        MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_av.fxml"));
         mainwindow = (Stage) Avtor.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
-        data = FXCollections.observableArrayList();
-        mainwindow.setTitle("Авторы");
+
+
     }
 
     @FXML
@@ -287,11 +289,7 @@ public class MainController {
 
     @FXML
     protected void initialize() {
-        if(mainwindow.getTitle() == null){
-
-        }
-        else {
-            if(mainwindow.getTitle() == "Авторы"){
+            if(MainController.name == "Авторы"){
                 try{
                     Connect  con = new Connect();
                     con.Connect();
@@ -314,18 +312,15 @@ public class MainController {
                         for( int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
                             row.add(rs.getString(i));
                         }
-                        data.add(row);
+                        MainController.data.add(row);
                     }
-                    tabl_avt.setItems(data);
+                    tabl_avt.setItems(MainController.data);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
 
-
-
-    }
 
 
 
