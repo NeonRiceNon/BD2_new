@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
@@ -10,12 +11,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="1257.0" styleClass="fon" stylesheets="@avtor.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
-      <TextField layoutX="682.0" layoutY="308.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
+      <TextField fx:id="login_text" layoutX="682.0" layoutY="308.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
          <font>
             <Font name="Gadugi" size="18.0" />
          </font>
       </TextField>
-      <TextField layoutX="682.0" layoutY="457.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
+      <TextField fx:id="pass_text" layoutX="682.0" layoutY="457.0" prefHeight="54.0" prefWidth="304.0" styleClass="fild">
          <font>
             <Font name="Microsoft PhagsPa" size="18.0" />
          </font>
@@ -41,5 +42,10 @@
             </LinearGradient>
          </textFill>
       </Button>
+      <Label fx:id="err" alignment="CENTER" contentDisplay="CENTER" layoutX="719.0" layoutY="550.0" prefHeight="36.0" prefWidth="337.0" textFill="#d02626">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
