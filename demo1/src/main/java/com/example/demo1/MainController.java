@@ -243,8 +243,6 @@ public class MainController {
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_av.fxml"));
         mainwindow = (Stage) Avtor.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
-
-
     }
 
     @FXML
@@ -293,7 +291,6 @@ public class MainController {
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_or.fxml"));
         mainwindow = (Stage) Orders.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
-
     }
 
     @FXML
@@ -306,9 +303,6 @@ public class MainController {
     private TableView tabl_gan;
     @FXML
     private TableView tabl_or;
-
-    // private ObservableList<ObservableList> data;
-
     @FXML
     protected void initialize() {
         if (MainController.name == "Авторы") {
@@ -460,6 +454,8 @@ public class MainController {
             }
         }
     }
+
+
 
 
         public void setAvtor (Button avtor){
