@@ -27,6 +27,7 @@ public class MainController {
     Stage mainwindow;
     static private ObservableList<Object> data;
     static private String name;
+
     //ДОБАВЛЕНИЕ
     @FXML
     public void showDialogAvtor(ActionEvent actionEvent) {
@@ -38,11 +39,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void showDialogBook(ActionEvent actionEvent) {
         try {
@@ -53,11 +54,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void showDialogCli(ActionEvent actionEvent) {
         try {
@@ -68,11 +69,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void showDialogGan(ActionEvent actionEvent) {
         try {
@@ -83,11 +84,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void showDialogOr(ActionEvent actionEvent) {
         try {
@@ -98,8 +99,7 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -115,11 +115,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void IzmenDialogCli(ActionEvent actionEvent) {
         try {
@@ -130,11 +130,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void IzmenDialogAv(ActionEvent actionEvent) {
         try {
@@ -145,11 +145,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void IzmenDialogGan(ActionEvent actionEvent) {
         try {
@@ -160,11 +160,11 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
     @FXML
     public void IzmenDialogOr(ActionEvent actionEvent) {
         try {
@@ -175,8 +175,7 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -192,8 +191,7 @@ public class MainController {
             dialog.setScene(new Scene(root));
             dialog.showAndWait();
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -207,8 +205,9 @@ public class MainController {
 
     @FXML
     private Button vxod;
+
     @FXML
-    protected void RegClick() throws IOException{
+    protected void RegClick() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
         mainwindow = (Stage) vxod.getScene().getWindow();
         mainwindow.setScene(new Scene(root));
@@ -216,8 +215,9 @@ public class MainController {
 
     @FXML
     private Button CreatAkk;
+
     @FXML
-    protected void Butt_CreatAkk() throws IOException{
+    protected void Butt_CreatAkk() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("reg_form.fxml"));
         Stage wind = (Stage) CreatAkk.getScene().getWindow();
         wind.setScene(new Scene(root));
@@ -225,8 +225,9 @@ public class MainController {
 
     @FXML
     private Button naz;
+
     @FXML
-    protected void Butt_Naz() throws IOException{
+    protected void Butt_Naz() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
         Stage wind = (Stage) naz.getScene().getWindow();
         wind.setScene(new Scene(root));
@@ -234,8 +235,9 @@ public class MainController {
 
     @FXML
     private Button Avtor;
+
     @FXML
-    protected void Clik_Avtor() throws IOException{
+    protected void Clik_Avtor() throws IOException {
         MainController.name = "Авторы";
         MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_av.fxml"));
@@ -247,101 +249,238 @@ public class MainController {
 
     @FXML
     private Button Book;
+
     @FXML
-    protected void Clik_Book() throws IOException{
+    protected void Clik_Book() throws IOException {
+        MainController.name = "Книги";
+        MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_book.fxml"));
-        Stage wind1 = (Stage) Book.getScene().getWindow();
-        wind1.setScene(new Scene(root1));
+        mainwindow = (Stage) Book.getScene().getWindow();
+        mainwindow.setScene(new Scene(root1));
     }
 
     @FXML
     private Button Client;
+
     @FXML
-    protected void Clik_Client() throws IOException{
+    protected void Clik_Client() throws IOException {
+        MainController.name = "Клиенты";
+        MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_cli.fxml"));
-        Stage wind1 = (Stage) Client.getScene().getWindow();
-        wind1.setScene(new Scene(root1));
+        mainwindow = (Stage) Client.getScene().getWindow();
+        mainwindow.setScene(new Scene(root1));
     }
 
     @FXML
     private Button Ganre;
+
     @FXML
-    protected void Clik_Ganre() throws IOException{
+    protected void Clik_Ganre() throws IOException {
+        MainController.name = "Жанры";
+        MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_gan.fxml"));
-        Stage wind1 = (Stage) Ganre.getScene().getWindow();
-        wind1.setScene(new Scene(root1));
+        mainwindow = (Stage) Ganre.getScene().getWindow();
+        mainwindow.setScene(new Scene(root1));
     }
 
     @FXML
     private Button Orders;
+
     @FXML
-    protected void Clik_Orders() throws IOException{
+    protected void Clik_Orders() throws IOException {
+        MainController.name = "Заказы";
+        MainController.data = FXCollections.observableArrayList();
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_or.fxml"));
-        Stage wind1 = (Stage) Orders.getScene().getWindow();
-        wind1.setScene(new Scene(root1));
+        mainwindow = (Stage) Orders.getScene().getWindow();
+        mainwindow.setScene(new Scene(root1));
 
     }
 
     @FXML
     private TableView tabl_avt;
+    @FXML
+    private TableView tabl_book;
+    @FXML
+    private TableView tabl_cli;
+    @FXML
+    private TableView tabl_gan;
+    @FXML
+    private TableView tabl_or;
 
-   // private ObservableList<ObservableList> data;
+    // private ObservableList<ObservableList> data;
 
     @FXML
     protected void initialize() {
-            if(MainController.name == "Авторы"){
-                try{
-                    Connect  con = new Connect();
-                    con.Connect();
-                    ResultSet rs = con.gettable("SELECT * FROM public.\"Author\";");
+        if (MainController.name == "Авторы") {
+            try {
+                Connect con = new Connect();
+                con.Connect();
+                ResultSet rs = con.gettable("SELECT * FROM public.\"Author\";");
 
-                    for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-                        //We are using non property style for making dynamic table
-                        final int j = i;
-                        TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-                        col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                            public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
-                                return new SimpleStringProperty(param.getValue().get(j).toString());
-                            }
-                        });
-                        tabl_avt.getColumns().addAll(col);
-                    }
-
-                    while(rs.next()){
-                        ObservableList<String> row = FXCollections.observableArrayList();
-                        for( int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
-                            row.add(rs.getString(i));
+                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
                         }
-                        MainController.data.add(row);
-                    }
-                    tabl_avt.setItems(MainController.data);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    });
+                    tabl_avt.getColumns().addAll(col);
                 }
+
+                while (rs.next()) {
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        row.add(rs.getString(i));
+                    }
+                    MainController.data.add(row);
+                }
+                tabl_avt.setItems(MainController.data);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+        if (MainController.name == "Книги") {
+            try {
+                Connect con = new Connect();
+                con.Connect();
+                ResultSet rs = con.gettable("SELECT * FROM public.\"Books\";");
+
+                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
+                        }
+                    });
+                    tabl_book.getColumns().addAll(col);
+                }
+
+                while (rs.next()) {
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        row.add(rs.getString(i));
+                    }
+                    MainController.data.add(row);
+                }
+                tabl_book.setItems(MainController.data);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        if (MainController.name == "Клиенты") {
+            try {
+                Connect con = new Connect();
+                con.Connect();
+                ResultSet rs = con.gettable("SELECT * FROM public.\"Client\";");
+
+                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
+                        }
+                    });
+                    tabl_cli.getColumns().addAll(col);
+                }
+                while (rs.next()) {
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        row.add(rs.getString(i));
+                    }
+                    MainController.data.add(row);
+                }
+                tabl_cli.setItems(MainController.data);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (MainController.name == "Жанры") {
+            try {
+                Connect con = new Connect();
+                con.Connect();
+                ResultSet rs = con.gettable("SELECT * FROM public.\"Genre\";");
+
+                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
+                        }
+                    });
+                    tabl_gan.getColumns().addAll(col);
+                }
+                while (rs.next()) {
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        row.add(rs.getString(i));
+                    }
+                    MainController.data.add(row);
+                }
+                tabl_gan.setItems(MainController.data);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (MainController.name == "Заказы") {
+            try {
+                Connect con = new Connect();
+                con.Connect();
+                ResultSet rs = con.gettable("SELECT * FROM public.\"Orders\";");
+
+                for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                    //We are using non property style for making dynamic table
+                    final int j = i;
+                    TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                    col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                        public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                            return new SimpleStringProperty(param.getValue().get(j).toString());
+                        }
+                    });
+                    tabl_or.getColumns().addAll(col);
+                }
+                while (rs.next()) {
+                    ObservableList<String> row = FXCollections.observableArrayList();
+                    for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                        row.add(rs.getString(i));
+                    }
+                    MainController.data.add(row);
+                }
+                tabl_or.setItems(MainController.data);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
-
-
-        public void setAvtor(Button avtor) {
+        public void setAvtor (Button avtor){
             Avtor = avtor;
         }
-        public void setClient(Button client) {
+        public void setClient (Button client){
             Client = client;
         }
-        public void setBook(Button book) {
+        public void setBook (Button book){
             Book = book;
         }
-        public void setGanre(Button ganre) {
+        public void setGanre (Button ganre){
             Ganre = ganre;
         }
-        public void setOrders(Button orders) {
+        public void setOrders (Button orders){
             Orders = orders;
         }
-        public void setNaz(Button naz) {
+        public void setNaz (Button naz){
             this.naz = naz;
         }
     }
+
 
 

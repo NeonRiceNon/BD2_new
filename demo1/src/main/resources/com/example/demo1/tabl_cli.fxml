@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -47,14 +45,7 @@
       </TextField>
       <AnchorPane layoutX="79.0" layoutY="159.0" opacity="0.85" prefHeight="550.0" prefWidth="618.0" styleClass="table">
          <children>
-            <TableView layoutY="-22.0" prefHeight="592.0" prefWidth="716.0" styleClass="table">
-              <columns>
-                <TableColumn prefWidth="92.0" text="Арт" />
-                <TableColumn prefWidth="230.0" text="Название магазина" />
-                  <TableColumn prefWidth="212.0" text="Адрес" />
-                  <TableColumn minWidth="9.0" prefWidth="161.0" text="Номер телефона" />
-              </columns>
-            </TableView>
+            <TableView fx:id="tabl_cli" layoutY="-22.0" prefHeight="592.0" prefWidth="716.0" styleClass="table" />
          </children>
       </AnchorPane>
       <Button layoutX="900.0" layoutY="129.0" mnemonicParsing="false" onAction="#showDialogCli" prefHeight="40.0" prefWidth="39.0" styleClass="dobavl" />
@@ -82,6 +73,5 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <ScrollBar layoutX="774.0" layoutY="161.0" orientation="VERTICAL" prefHeight="568.0" prefWidth="21.0" />
    </children>
 </AnchorPane>
