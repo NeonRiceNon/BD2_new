@@ -20,51 +20,49 @@ public class Connect {
 
 
     }
-//ЧТО-ТО ОТ ДОБАВЛЕНИЯ ТАБЛИЦ
-    /*public ResultSet gettable(String sql){
+public ResultSet gettable(String sql){
         try{
-            //sql = "Select * from izmerenie";
-            ResultSet rs = connection.createStatement().executeQuery(sql);
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS");
+            ResultSet rs =connection.createStatement().executeQuery(sql);
             return rs;
         }
         catch (Exception e){
             return null;
         }
-
-    }*/
+    }
 
     //ДОБАВЛЕНИЕ
     public static void INSERT() {
-         try {
-            Statement statement = Connect("PKS","PKS", "jdbc:postgresql://46.229.214.241:5432/book publishing").createStatement();
+        try {
+            Statement statement = Connect().createStatement();
             int AUTHOR = statement.executeUpdate("INSERT INTO public.\"Author\" (name) VALUES ('Пушкин')");
         } catch (SQLException e) {
             e.printStackTrace();
-        }/*
+        }
         try {
-            Statement statement = Connect("PKS","PKS", "jdbc:postgresql://46.229.214.241:5432/book publishing").createStatement();
+            Statement statement = Connect().createStatement();
             int CLIENT = statement.executeUpdate("INSERT INTO public.\"Client\" (\"Shop\",\"Address\",\"Phone_number\") VALUES ('Книга','ул.Синяя, д.10','+79995553535')");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            Statement statement = Connect("PKS","PKS", "jdbc:postgresql://46.229.214.241:5432/book publishing").createStatement();
+            Statement statement = Connect().createStatement();
             int GENRE = statement.executeUpdate("INSERT INTO public.\"Genre\" (name) VALUES ('Роман')");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            Statement statement = Connect("PKS","PKS", "jdbc:postgresql://46.229.214.241:5432/book publishing").createStatement();
+            Statement statement = Connect().createStatement();
             int BOOKS = statement.executeUpdate("INSERT INTO public.\"Books\" (\"id_Author\",\"id_Genre\",\"Title_of_the_book\") VALUES (1,1,'Онегин')");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            Statement statement = Connect("PKS","PKS", "jdbc:postgresql://46.229.214.241:5432/book publishing").createStatement();
+            Statement statement = Connect().createStatement();
             int ORDERS = statement.executeUpdate("INSERT INTO public.\"Orders\" (\"id_Client\",\"id_Book\",\"Order_date\",\"Number_of_copies\") VALUES ('2','1','2022-10-23','100')");
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     //ОБНОВЛЕНИЕ

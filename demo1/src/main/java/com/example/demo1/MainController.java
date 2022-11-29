@@ -5,34 +5,27 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import javax.security.auth.callback.Callback;
+import javafx.util.Callback;
 
 public class MainController {
     Stage mainwindow;
+    private ObservableList<Object> data;
 
     //ДОБАВЛЕНИЕ
     @FXML
@@ -246,6 +239,8 @@ public class MainController {
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_av.fxml"));
         mainwindow = (Stage) Avtor.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
+        data = FXCollections.observableArrayList();
+        mainwindow.setTitle("Авторы");
     }
 
     @FXML
@@ -282,72 +277,76 @@ public class MainController {
         Parent root1 = FXMLLoader.load(getClass().getResource("tabl_or.fxml"));
         Stage wind1 = (Stage) Orders.getScene().getWindow();
         wind1.setScene(new Scene(root1));
+
     }
 
-   /* @FXML
+    @FXML
     private TableView tabl_avt;
 
-    private ObservableList<ObservableList> data;
+   // private ObservableList<ObservableList> data;
 
     @FXML
     protected void initialize() {
+        if(mainwindow.getTitle() == null){
 
-        data = FXCollections.observableArrayList();
-        try{
-           Connect  con = new Connect();
-            con.Connect();
-            ResultSet rs = con.gettable("Select * from izmerenie");
-            for(int i = 1; i < rs.getMetaData().getColumnCount(); i++){
-                final int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
-                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+        }
+        else {
+            if(mainwindow.getTitle() == "Авторы"){
+                try{
+                    Connect  con = new Connect();
+                    con.Connect();
+                    ResultSet rs = con.gettable("SELECT * FROM public.\"Author\";");
 
-
-                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                        //We are using non property style for making dynamic table
+                        final int j = i;
+                        TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                        col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                            public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                                return new SimpleStringProperty(param.getValue().get(j).toString());
+                            }
+                        });
+                        tabl_avt.getColumns().addAll(col);
                     }
-                });
-                tabl_avt.getColumns().addAll(col);
-            }
 
-            while(rs.next()){
-                ObservableList<String> row = FXCollections.observableArrayList();
-                for( int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
-                    row.add(rs.getString(i));
+                    while(rs.next()){
+                        ObservableList<String> row = FXCollections.observableArrayList();
+                        for( int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
+                            row.add(rs.getString(i));
+                        }
+                        data.add(row);
+                    }
+                    tabl_avt.setItems(data);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                data.add(row);
             }
-            tabl_avt.setItems(data);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        }
 
 
 
-
-
-
-
-
-    public void setAvtor(Button avtor) {
-        Avtor = avtor;
     }
-    public void setClient(Button client) {
-        Client = client;
+
+
+
+        public void setAvtor(Button avtor) {
+            Avtor = avtor;
+        }
+        public void setClient(Button client) {
+            Client = client;
+        }
+        public void setBook(Button book) {
+            Book = book;
+        }
+        public void setGanre(Button ganre) {
+            Ganre = ganre;
+        }
+        public void setOrders(Button orders) {
+            Orders = orders;
+        }
+        public void setNaz(Button naz) {
+            this.naz = naz;
+        }
     }
-    public void setBook(Button book) {
-        Book = book;
-    }
-    public void setGanre(Button ganre) {
-        Ganre = ganre;
-    }
-    public void setOrders(Button orders) {
-        Orders = orders;
-    }
-    public void setNaz(Button naz) {
-        this.naz = naz;
-    }
-}
+
 
