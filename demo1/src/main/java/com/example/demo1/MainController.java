@@ -205,13 +205,31 @@ public class MainController {
 
     @FXML
     private Button vxod;
+    @FXML
+    private TextField login_text;
+    @FXML
+    private TextField pass_text;
+    @FXML
+    private Label err;
 
     @FXML
     protected void RegClick() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
-        mainwindow = (Stage) vxod.getScene().getWindow();
-        mainwindow.setScene(new Scene(root));
+
+        String username = login_text.getText();
+        String pass = pass_text.getText();
+        Connect c = (Connect) Connect.Connect();
+
+        if(c!= null){
+            Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
+            Stage wind = (Stage) vxod.getScene().getWindow();
+            wind.setScene(new Scene(root));
+        }else{
+            err.setText("Неверный логин или пароль");
+        }
+
     }
+        /*mainwindow = (Stage) vxod.getScene().getWindow();
+        mainwindow.setScene(new Scene(root));*/
 
     @FXML
     private Button CreatAkk;
