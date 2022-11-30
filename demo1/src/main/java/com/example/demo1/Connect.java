@@ -17,9 +17,8 @@ public class Connect {
             e.printStackTrace();
             return null;
         }
-
-
     }
+
 public ResultSet gettable(String sql){
         try{
             Connection connection = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS");

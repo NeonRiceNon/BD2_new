@@ -2,15 +2,15 @@ package com.example.demo1;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -27,6 +28,73 @@ public class MainController {
     Stage mainwindow;
     static private ObservableList<Object> data;
     static private String name;
+
+    @FXML
+    private ResourceBundle resources;
+    @FXML
+    private URL location;
+    @FXML
+    private Button dobavit;
+    @FXML
+    private Button CreatAkk;
+    @FXML
+    private Button naz;
+    @FXML
+    private Button Avtor;
+    @FXML
+    private Button Book;
+    @FXML
+    private Button Client;
+    @FXML
+    private Button Ganre;
+    @FXML
+    private Button Orders;
+    @FXML
+    private TableView tabl_avt;
+    @FXML
+    private TableView tabl_book;
+    @FXML
+    private TableView tabl_cli;
+    @FXML
+    private TableView tabl_gan;
+    @FXML
+    private TableView tabl_or;
+    @FXML
+    private Button vxod;
+    @FXML
+    private Label err;
+    @FXML
+    private TextField login_text;
+    @FXML
+    private TextField pass_text;
+
+    /*@FXML
+    protected void RegClick() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
+        mainwindow = (Stage) vxod.getScene().getWindow();
+        mainwindow.setScene(new Scene(root));
+    }
+    mainwindow = (Stage) vxod.getScene().getWindow();
+    mainwindow.setScene(new Scene(root));*/
+
+    @FXML
+    protected void RegClick() throws IOException {
+        String username = login_text.getText();
+        String pass = pass_text.getText();
+
+        try {
+            Connection c = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS");
+            Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
+            Stage wind = (Stage) vxod.getScene().getWindow();
+            wind.setScene(new Scene(root));
+        } catch (SQLException e) {
+            err.setText("Неверный логин или пароль");
+            err.setTextFill(Color.RED);
+            e.printStackTrace();
+        }
+    }
+        //Connect c = Connect.Connect(username, pass, "jdbc:postgresql://46.229.214.241:5432/book publishing");
+
 
     //ДОБАВЛЕНИЕ
     @FXML
@@ -196,35 +264,8 @@ public class MainController {
         }
     }
 
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
-    @FXML
-    private Button dobavit;
 
-    @FXML
-    private Button vxod;
-    /*@FXML
-    private TextField login_text;
-    @FXML
-    private TextField pass_text;
-    @FXML
-    private Label err;*/
 
-    @FXML
-    protected void RegClick() throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
-        mainwindow = (Stage) vxod.getScene().getWindow();
-        mainwindow.setScene(new Scene(root));
-
-    }
-        /*mainwindow = (Stage) vxod.getScene().getWindow();
-        mainwindow.setScene(new Scene(root));*/
-
-    @FXML
-    private Button CreatAkk;
 
     @FXML
     protected void Butt_CreatAkk() throws IOException {
@@ -234,17 +275,11 @@ public class MainController {
     }
 
     @FXML
-    private Button naz;
-
-    @FXML
     protected void Butt_Naz() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
         Stage wind = (Stage) naz.getScene().getWindow();
         wind.setScene(new Scene(root));
     }
-
-    @FXML
-    private Button Avtor;
 
     @FXML
     protected void Clik_Avtor() throws IOException {
@@ -256,9 +291,6 @@ public class MainController {
     }
 
     @FXML
-    private Button Book;
-
-    @FXML
     protected void Clik_Book() throws IOException {
         MainController.name = "Книги";
         MainController.data = FXCollections.observableArrayList();
@@ -266,9 +298,6 @@ public class MainController {
         mainwindow = (Stage) Book.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
     }
-
-    @FXML
-    private Button Client;
 
     @FXML
     protected void Clik_Client() throws IOException {
@@ -280,9 +309,6 @@ public class MainController {
     }
 
     @FXML
-    private Button Ganre;
-
-    @FXML
     protected void Clik_Ganre() throws IOException {
         MainController.name = "Жанры";
         MainController.data = FXCollections.observableArrayList();
@@ -290,9 +316,6 @@ public class MainController {
         mainwindow = (Stage) Ganre.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
     }
-
-    @FXML
-    private Button Orders;
 
     @FXML
     protected void Clik_Orders() throws IOException {
@@ -303,16 +326,6 @@ public class MainController {
         mainwindow.setScene(new Scene(root1));
     }
 
-    @FXML
-    private TableView tabl_avt;
-    @FXML
-    private TableView tabl_book;
-    @FXML
-    private TableView tabl_cli;
-    @FXML
-    private TableView tabl_gan;
-    @FXML
-    private TableView tabl_or;
     @FXML
     protected void initialize() {
         if (MainController.name == "Авторы") {
