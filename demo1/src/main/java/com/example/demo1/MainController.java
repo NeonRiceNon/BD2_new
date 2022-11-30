@@ -84,6 +84,8 @@ public class MainController {
 
         try {
             Connection c = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS");
+
+            //Connect c = Connect.Connect(username, pass, "jdbc:postgresql://46.229.214.241:5432/book publishing");
             Parent root = FXMLLoader.load(getClass().getResource("def_form.fxml"));
             Stage wind = (Stage) vxod.getScene().getWindow();
             wind.setScene(new Scene(root));
@@ -93,7 +95,7 @@ public class MainController {
             e.printStackTrace();
         }
     }
-        //Connect c = Connect.Connect(username, pass, "jdbc:postgresql://46.229.214.241:5432/book publishing");
+
 
 
     //ДОБАВЛЕНИЕ
