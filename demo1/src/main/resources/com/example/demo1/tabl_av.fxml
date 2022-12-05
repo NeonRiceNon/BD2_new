@@ -45,7 +45,7 @@
       </TextField>
       <AnchorPane layoutX="79.0" layoutY="159.0" opacity="0.85" prefHeight="550.0" prefWidth="618.0" styleClass="table">
          <children>
-            <TableView fx:id="tabl_avt" layoutY="-22.0" prefHeight="592.0" prefWidth="618.0" styleClass="table" />
+            <TableView fx:id="tabl_avt" layoutY="-22.0" onMouseClicked="#get_Item_from_table_view_AV" prefHeight="592.0" prefWidth="618.0" styleClass="table" />
          </children>
       </AnchorPane>
       <Button fx:id="dobavit" layoutX="900.0" layoutY="129.0" mnemonicParsing="false" onAction="#showDialogAvtor" prefHeight="40.0" prefWidth="39.0" styleClass="dobavl" />

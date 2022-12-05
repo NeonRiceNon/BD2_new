@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -249,6 +250,8 @@ public class MainController {
         }
     }
 
+
+
     //УДАЛИТЬ
     @FXML
     public void DeleteDialog(ActionEvent actionEvent) {
@@ -264,6 +267,21 @@ public class MainController {
             System.out.println(e);
         }
     }
+    @FXML
+    public void DeleteDialogGan(ActionEvent actionEvent) {
+        try {
+            Stage dialog = new Stage();
+            dialog.initOwner(mainwindow);
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            Parent root = FXMLLoader.load(getClass().getResource("win_del_Gan.fxml"));
+            dialog.setScene(new Scene(root));
+            dialog.showAndWait();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
 
 
@@ -326,20 +344,38 @@ public class MainController {
         mainwindow = (Stage) Orders.getScene().getWindow();
         mainwindow.setScene(new Scene(root1));
     }
+public void getInfoAV(){
+    try {
+        Connect con = new Connect();
+        con.Connect();
+        ResultSet rs = con.gettable("SELECT * FROM public.\"Author\";");
 
-    @FXML
-    void dd_Avt(ActionEvent event) {
-        try(Connection con = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS")){
-            Statement statement = con.createStatement();
-            int rows = statement.executeUpdate("INSERT INTO public.izmerenie(naimenovanie) VALUES('" + Av_dob_Text.getText() + "')");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-    }}
-    @FXML
-    private TextField Av_dob_Text;
+        for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+            //We are using non property style for making dynamic table
+            final int j = i;
+            TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+            col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                    return new SimpleStringProperty(param.getValue().get(j).toString());
+                }
+            });
+            tabl_avt.getColumns().addAll(col);
+        }
 
-    @FXML
-    private Button Butt_dob_av;
+        while (rs.next()) {
+            ObservableList<String> row = FXCollections.observableArrayList();
+            for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                row.add(rs.getString(i));
+            }
+            MainController.data.add(row);
+        }
+        tabl_avt.setItems(MainController.data);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+}
+
     @FXML
     public void initialize() {
 
@@ -517,7 +553,18 @@ public class MainController {
         public void setNaz (Button naz){
             this.naz = naz;
         }
+
+    public void get_Item_from_table_view_AV(MouseEvent mouseEvent) {
+         ObservableList izm = (ObservableList) tabl_avt.getSelectionModel().getSelectedItem();
+        //  System.out.println(izm.get(0).toString());
+        //dataS.setIdIzerenie(izm.get(0).toString());
+        //System.out.println(dataS.getIdIzerenie());
+
+        Peremennie.name = izm.get(1).toString();
+        Peremennie.id =  Integer.parseInt(izm.get(0).toString()) ;
+        System.out.println(Peremennie.id );
     }
+}
 
 
 
