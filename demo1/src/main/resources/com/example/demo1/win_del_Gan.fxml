@@ -26,7 +26,7 @@
                   <Font name="Franklin Gothic Medium" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="Ev_Del" layoutX="157.0" layoutY="121.0" mnemonicParsing="false" onAction="#Ev_Del_Actinon" prefHeight="40.0" prefWidth="121.0" style="-fx-background-radius: 10;" text="Удалить" textFill="#8d7979">
+            <Button fx:id="Ev_Del_Gan" layoutX="157.0" layoutY="121.0" mnemonicParsing="false" onAction="#Ev_Del_Actinon" prefHeight="40.0" prefWidth="121.0" style="-fx-background-radius: 10;" text="Удалить" textFill="#8d7979">
                <font>
                   <Font name="Franklin Gothic Medium" size="16.0" />
                </font>
