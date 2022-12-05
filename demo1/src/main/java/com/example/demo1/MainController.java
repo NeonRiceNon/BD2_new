@@ -2,10 +2,7 @@ package com.example.demo1;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -67,6 +64,8 @@ public class MainController {
     private TextField login_text;
     @FXML
     private TextField pass_text;
+
+
 
     /*@FXML
     protected void RegClick() throws IOException {
@@ -329,8 +328,23 @@ public class MainController {
     }
 
     @FXML
-    protected void initialize() {
+    void dd_Avt(ActionEvent event) {
+        try(Connection con = DriverManager.getConnection("jdbc:postgresql://46.229.214.241:5432/book publishing", "PKS", "PKS")){
+            Statement statement = con.createStatement();
+            int rows = statement.executeUpdate("INSERT INTO public.izmerenie(naimenovanie) VALUES('" + Av_dob_Text.getText() + "')");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+    }}
+    @FXML
+    private TextField Av_dob_Text;
+
+    @FXML
+    private Button Butt_dob_av;
+    @FXML
+    public void initialize() {
+
         if (MainController.name == "Авторы") {
+
             try {
                 Connect con = new Connect();
                 con.Connect();
@@ -359,6 +373,8 @@ public class MainController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+
         }
         if (MainController.name == "Книги") {
             try {
